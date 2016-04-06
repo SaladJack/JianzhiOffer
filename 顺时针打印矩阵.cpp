@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+//解法一
 class Solution {
 public:
 	vector<int> printMatrix(vector<vector<int> > matrix) {
@@ -17,3 +18,45 @@ public:
 	}
 	
 };
+/*解法二
+class Solution {
+public:
+   vector<int> printMatrix(vector<vector<int>> matrix) {
+        int tR=0;
+        int tC=0;
+        int dR=matrix.size()-1;
+        int dC=matrix[0].size()-1;
+        vector<int> result;
+        while(tR<=dR&&tC<=dC)
+                print(matrix,result,tR++,tC++,dR--,dC--);
+        return result;
+   }
+   void print(vector<vector<int>> matrix,vector<int>& result,int tR,int tC,int dR,int dC){
+        if(tR==dR)
+            for(int i=tC;i<=dC;i++)
+                result.push_back(matrix[tR][i]);
+        else if(tC==dC)
+            for(int i = tR;i<=dR;i++)
+                result.push_back(matrix[i][tC]);
+        else {
+            int curC=tC;
+            int curR=tR;
+         while(curC!=dC){
+             result.push_back(matrix[tR][curC]);
+             ++curC;
+        }
+        while(curR!=dR){
+             result.push_back(matrix[curR][dC]);
+             ++curR;
+        }
+        while(curC!=tC){
+             result.push_back(matrix[dR][curC]);
+             --curC;
+        }
+        while(curR!=tR){
+             result.push_back(matrix[curR][tC]);
+             --curR;
+        }
+     }
+   }
+};*/
