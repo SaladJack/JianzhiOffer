@@ -28,7 +28,7 @@ public:
 		queue.push(root);
 		while (!queue.empty())
 		{
-			TreeNode* temp = queue.back();
+			TreeNode* temp = queue.front();
 			queue.pop();
 			if (temp == NULL)
 				continue;
